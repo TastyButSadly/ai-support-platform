@@ -1,0 +1,38 @@
+[project]
+name = "support-ai-mvp"
+version = "0.1.0"
+description = "Локальный прототип обработки обращений поддержки"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "openai==3.1.0",
+    "python-dotenv==1.2.3",
+    "scikit-learn==1.9.0",
+    "streamlit==1.61.1",
+]
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+    "ruff==0.16.3",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
